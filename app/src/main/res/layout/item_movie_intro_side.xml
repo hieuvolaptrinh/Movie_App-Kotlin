@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="8dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="16dp"
     app:cardElevation="4dp"
-    android:layout_margin="6dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <ImageView
         android:id="@+id/imgPoster"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:scaleType="centerCrop"/>
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/side_intro_4" />
 </androidx.cardview.widget.CardView>
