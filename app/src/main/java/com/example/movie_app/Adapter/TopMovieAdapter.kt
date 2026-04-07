@@ -1,39 +1,33 @@
 package com.example.movie_app.Adapter
 
-import android.R
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.movie_app.Model.TopMovie
 import com.example.movie_app.databinding.ItemMovieBinding
 
-class TopMovieAdapter(private val list: List<String>) :
-    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class TopMovieAdapter(
+    private val listMovie: List<TopMovie>,
+    private val onItemClick: (TopMovie) -> Unit
+) :
+    RecyclerView.Adapter<TopMovieAdapter.TopMovieViewHolder>() {
 
     class TopMovieViewHolder(val binding: ItemMovieBinding) : RecyclerView.ViewHolder(binding.root)
 
-    // như cái khung hiển thị thôi
-    override fun onCreateViewHolder(
-        p0: ViewGroup,
-        viewType: Int
-    ): RecyclerView.ViewHolder {
-        val binding = ItemMovieBinding.inflate(inflater, parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TopMovieViewHolder {
+        val binding = ItemMovieBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return TopMovieViewHolder(binding)
     }
 
-    //đưa dữa liệu vào trong ui
-    override fun onBindViewHolder(
-        holder: RecyclerView.ViewHolder,
-        position: Int
-    ) {
-        val item = list[position]
-        when (holder) {
-            is TopMovieViewHolder -> {
-                holder.binding.imgTopMovie.setImageResource(item.toInt())
-            }
+    override fun onBindViewHolder(holder: TopMovieViewHolder, position: Int) {
+
+        val movie = listMovie[position]
+        holder.binding.imgTopMovie.setImageResource(movie.imageId)
+
+        holder.itemView.setOnClickListener {
+            onItemClick(movie)
         }
     }
 
-    override fun getItemCount(): Int {
-        return list.size
-    }
-
+    override fun getItemCount(): Int = listMovie.size
 }
