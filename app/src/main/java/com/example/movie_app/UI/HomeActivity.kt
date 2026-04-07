@@ -53,10 +53,9 @@ class HomeActivity : AppCompatActivity() {
             TopMovie(R.drawable.today_movie_3, "The Batman")
         )
 
-        val adapter = TopMovieAdapter(todayList) {
+        val adapter = TopMovieAdapter(todayList) {item->
             val intent = Intent(this, MovieDetailActivity::class.java)
-            intent.putExtra("movieName", it.name)
-            intent.putExtra("movieImage", it.imageId)
+            intent.putExtra("movie", item)
             startActivity(intent)
         }
         binding.rvTodayPick.layoutManager =
