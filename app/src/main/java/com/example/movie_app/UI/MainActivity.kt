@@ -1,16 +1,13 @@
-package com.example.movie_app
+package com.example.movie_app.UI
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.movie_app.Adapter.IntroAdapter
 import com.example.movie_app.Model.MovieIntro
-import com.example.movie_app.UI.HomeActivity
 import com.example.movie_app.databinding.ActivityMainBinding
-import kotlin.time.Instant
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

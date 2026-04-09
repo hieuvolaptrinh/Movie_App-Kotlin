@@ -1,13 +1,15 @@
 package com.example.movie_app.UI
 
 import android.content.Intent
+import android.graphics.RenderEffect
+import android.graphics.Shader
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-
 import com.example.movie_app.Adapter.TopMovieAdapter
 import com.example.movie_app.Model.TopMovie
 import com.example.movie_app.R
@@ -28,9 +30,13 @@ class HomeActivity : AppCompatActivity() {
         }
         initPopularMovie()
         initTodayMovie()
+
     }
 
+
+
     private fun initPopularMovie() {
+        binding.tvPopularTitle.text = getString(R.string.popular_movies)
         val popularList = listOf(
             TopMovie(R.drawable.popular_1, "Black Widow"),
             TopMovie(R.drawable.popular_2, "Tenet"),
@@ -38,6 +44,8 @@ class HomeActivity : AppCompatActivity() {
         )
         val adapter = TopMovieAdapter(popularList) { item ->
             val intent = Intent(this, MovieDetailActivity::class.java)
+            intent.putExtra("movie", item)
+            startActivity(intent)
 
         }
 
@@ -53,9 +61,9 @@ class HomeActivity : AppCompatActivity() {
             TopMovie(R.drawable.today_movie_3, "The Batman")
         )
 
-        val adapter = TopMovieAdapter(todayList) {item->
+        val adapter = TopMovieAdapter(todayList) { item ->
             val intent = Intent(this, MovieDetailActivity::class.java)
-            intent.putExtra("movie", item)
+            intent.putExtra(MovieDetailActivity.EXTRA_MOVIE, item)
             startActivity(intent)
         }
         binding.rvTodayPick.layoutManager =

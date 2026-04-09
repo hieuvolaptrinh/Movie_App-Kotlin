@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Movie-App</string>
+    <string name="popular_title">Popular</string>
+    <string name="top_picks_title">Top picks</string>
+    <string name="see_all">See All ></string>
+    <string name="popular_movies">Popular Movies</string>
+    <string name="welcome_arpan">Welcome, Arpan</string>
 </resources>

@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".UI.MainActivity">
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -15,11 +15,10 @@
         android:background="#000000"
         android:clipToPadding="false"
         android:overScrollMode="never"
-        android:paddingStart="20dp"
+        android:paddingStart="10dp"
         android:paddingTop="8dp"
-        android:paddingEnd="20dp"
+        android:paddingEnd="10dp"
         android:paddingBottom="8dp"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -30,25 +29,27 @@
         tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         tools:listitem="@layout/item_movie_intro_mid"
         tools:spanCount="3">
+
     </androidx.recyclerview.widget.RecyclerView>
 
     <LinearLayout
         android:id="@+id/groupButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
-        android:background="@drawable/bg_gradient_black"
+        android:layout_height="346dp"
+
+        android:background="#0D000000"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="24dp"
-        app:layout_constraintBottom_toBottomOf="@+id/recyclerViewIntro"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.987">
+        app:layout_constraintVertical_bias="1.0">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:gravity="center"
             android:text="Unlimited\nEntertainment"
             android:textColor="#FFFFFF"
@@ -65,26 +66,28 @@
             android:textSize="20sp" />
 
         <Button
-            android:layout_width="80dp"
             android:id="@+id/buttonGo"
+            android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/conner_button_red"
             android:backgroundTint="@null"
+            android:padding="0dp"
             android:text="GO"
             android:textColor="#FFFFFF"
-            android:textSize="12sp"
+            android:textSize="25sp"
+            android:textStyle="bold"
             app:backgroundTint="@null" />
 
     </LinearLayout>
 
     <ImageView
         android:id="@+id/imgLogo"
-        android:layout_width="70dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="36dp"
+        android:layout_width="62dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="44dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.096"
+        app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/recyclerViewIntro"
         app:srcCompat="@drawable/logo" />
@@ -93,13 +96,14 @@
         android:id="@+id/textLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="PRIVACY"
+        android:layout_marginTop="52dp"
+        android:drawableEnd="@drawable/drop_down"
+        android:text="PRIVACY "
         android:textColor="#FFFFFF"
+        android:textSize="15sp"
         android:textStyle="bold"
-        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.843"
+        app:layout_constraintHorizontal_bias="0.723"
         app:layout_constraintStart_toEndOf="@+id/imgLogo"
         app:layout_constraintTop_toTopOf="parent" />
 
