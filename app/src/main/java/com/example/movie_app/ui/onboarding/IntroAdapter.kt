@@ -1,14 +1,12 @@
-package com.example.movie_app.Adapter
+package com.example.movie_app.ui.onboarding
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.GridLayoutManager
-import com.example.movie_app.Model.MovieIntro
-import com.example.movie_app.databinding.ItemMovieIntroSideBinding
 import com.example.movie_app.databinding.ItemMovieIntroMidBinding
+import com.example.movie_app.databinding.ItemMovieIntroSideBinding
 
-class IntroAdapter(private val list: List<MovieIntro>) :
+class IntroAdapter(private val list: List<MovieIntroModel>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object { // giống như staitc trong java

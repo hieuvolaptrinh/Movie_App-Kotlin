@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
 
     android:background="@drawable/bg_gradient_home"
-    tools:context=".UI.HomeActivity">
+    tools:context=".ui.home.HomeActivity">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"

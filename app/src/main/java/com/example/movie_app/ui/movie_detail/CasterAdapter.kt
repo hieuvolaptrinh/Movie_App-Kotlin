@@ -1,4 +1,4 @@
-package com.example.movie_app.Adapter
+package com.example.movie_app.ui.movie_detail
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

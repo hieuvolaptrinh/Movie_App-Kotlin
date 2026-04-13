@@ -1,7 +1,8 @@
-package com.example.movie_app.UI
+package com.example.movie_app.ui.movie_detail
 
 import android.graphics.Color
 import android.graphics.Typeface
+import android.os.Build
 import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableStringBuilder
@@ -12,8 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.movie_app.Adapter.CasterAdapter
-import com.example.movie_app.Model.TopMovie
+import com.example.movie_app.ui.home.TopMovieItem
 import com.example.movie_app.R
 import com.example.movie_app.databinding.ActivityMovieDetailBinding
 
@@ -32,11 +32,11 @@ class MovieDetailActivity : AppCompatActivity() {
             insets
         }
 
-        val movie = if (android.os.Build.VERSION.SDK_INT >= 33) {
-            intent.getParcelableExtra("movie", TopMovie::class.java)
+        val movie = if (Build.VERSION.SDK_INT >= 33) {
+            intent.getParcelableExtra("movie", TopMovieItem::class.java)
         } else {
             @Suppress("DEPRECATION")
-            intent.getParcelableExtra<TopMovie>(EXTRA_MOVIE)
+            intent.getParcelableExtra<TopMovieItem>(EXTRA_MOVIE)
         }
 
         movie?.let {

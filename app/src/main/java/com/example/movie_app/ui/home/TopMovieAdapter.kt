@@ -1,16 +1,14 @@
-package com.example.movie_app.Adapter
+package com.example.movie_app.ui.home
 
-import android.content.Context
 import android.content.res.Resources
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.movie_app.Model.TopMovie
 import com.example.movie_app.databinding.ItemMovieBinding
 
 class TopMovieAdapter(
-    private val listMovie: List<TopMovie>,
-    private val onItemClick: (TopMovie) -> Unit
+    private val listMovie: List<TopMovieItem>,
+    private val onItemClick: (TopMovieItem) -> Unit
 ) :
     RecyclerView.Adapter<TopMovieAdapter.TopMovieViewHolder>() {
 
