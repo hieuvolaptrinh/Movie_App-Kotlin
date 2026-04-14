@@ -17,6 +17,7 @@ class CasterAdapter(private val listCaster: List<Int>) : RecyclerView.Adapter<Ca
     override fun onBindViewHolder(holder: CasterViewHolder, position: Int) {
         val casterImageId = listCaster[position]
         holder.binding.imgCaster.setImageResource(casterImageId)
+
     }
 
     override fun getItemCount(): Int = listCaster.size

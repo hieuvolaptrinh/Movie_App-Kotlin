@@ -1,6 +1,6 @@
 package com.example.movie_app.ui.login
 
-import com.example.movie_app.data.model.LoginResponse
+import com.example.movie_app.data.model.auth.LoginResponse
 
 //sealed class : lớp niêm phong => nghĩa là bộ danh sách có thể xảy ra
 // giống như với enum nhưng nó có thể chứa dữ liệu và có thể có nhiều trường hợp hơn là enum

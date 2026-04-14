@@ -6,16 +6,18 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 //giống như singleton để tạo instance của retrofit, tránh việc tạo nhiều
 object RetrofitClient {
-    private const val BASE_URL ="https://dummyjson.com/"
+    private const val BASE_URL = "https://mocki.io/v1/"
 
-    private val retrofit=
+//    https://mocki.io/v1/981ecab0-84f2-43c9-9a4a-6b184708e011   => popular
+//    https://mocki.io/v1/9909d92e-a6ef-4ec4-b8a4-f06b0b4bcca6  ==>  today
+
+    private val retrofit =
         Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-//    tương tự nhiều API thì cứ viết như thế
-    val authApi: AuthApi = retrofit.create(AuthApi::class.java)
 
-//    val userApi: UserApi = retrofit.create(UserApi::class.java)
+    val authApi: AuthApi = retrofit.create(AuthApi::class.java)
+    val topMovieApi: TopMovieApi = retrofit.create(TopMovieApi::class.java)
 }

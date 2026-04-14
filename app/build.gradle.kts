@@ -1,7 +1,10 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android) // 🔥 THIẾU
 
     id("kotlin-parcelize")
+    id("com.google.devtools.ksp")
+    id("com.google.dagger.hilt.android") // 🔥 THÊM
 }
 
 android {
@@ -11,7 +14,6 @@ android {
             minorApiLevel = 1
         }
     }
-
     defaultConfig {
         applicationId = "com.example.movie_app"
         minSdk = 24
@@ -21,7 +23,6 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
-
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -53,9 +54,15 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    // Cập nhật phiên bản (Ví dụ phiên bản ổn định năm 2026)
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
 
 
+//    để quản lý vòng đời của coroutine trong view model, giúp tránh rò rỉ bộ nhớ và đảm bảo rằng các tác vụ bất đồng bộ được hủy đúng cách khi view model bị hủy
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+
+    implementation("com.google.dagger:hilt-android:2.51.1")
+    ksp("com.google.dagger:hilt-android-compiler:2.51.1") // thay kapt
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

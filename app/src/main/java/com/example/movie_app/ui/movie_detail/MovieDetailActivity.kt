@@ -13,9 +13,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.movie_app.ui.home.TopMovieItem
 import com.example.movie_app.R
 import com.example.movie_app.databinding.ActivityMovieDetailBinding
+import com.example.movie_app.ui.home.model.TopMovieItem
+import com.example.movie_app.until.Constants
 
 class MovieDetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMovieDetailBinding
@@ -36,7 +37,7 @@ class MovieDetailActivity : AppCompatActivity() {
             intent.getParcelableExtra("movie", TopMovieItem::class.java)
         } else {
             @Suppress("DEPRECATION")
-            intent.getParcelableExtra<TopMovieItem>(EXTRA_MOVIE)
+            intent.getParcelableExtra<TopMovieItem>(Constants.Companion.EXTRA_MOVIE)
         }
 
         movie?.let {
@@ -87,10 +88,8 @@ class MovieDetailActivity : AppCompatActivity() {
         binding.rvCaster.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             adapter = casterAdapter
+
         }
     }
 
-    companion object {
-        const val EXTRA_MOVIE = "movie"
-    }
 }

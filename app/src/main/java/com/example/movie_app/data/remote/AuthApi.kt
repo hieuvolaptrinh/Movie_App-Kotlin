@@ -1,7 +1,7 @@
 package com.example.movie_app.data.remote
 
-import com.example.movie_app.data.model.LoginRequest
-import com.example.movie_app.data.model.LoginResponse
+import com.example.movie_app.data.model.auth.LoginRequest
+import com.example.movie_app.data.model.auth.LoginResponse
 import retrofit2.http.Body
 import retrofit2.http.POST
 
