@@ -1,10 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android) // 🔥 THIẾU
-
     id("kotlin-parcelize")
     id("com.google.devtools.ksp")
-    id("com.google.dagger.hilt.android") // 🔥 THÊM
+    id("com.google.dagger.hilt.android")  
 }
 
 android {
@@ -39,6 +37,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
 }
 
 dependencies {
@@ -60,11 +59,14 @@ dependencies {
 
 //    để quản lý vòng đời của coroutine trong view model, giúp tránh rò rỉ bộ nhớ và đảm bảo rằng các tác vụ bất đồng bộ được hủy đúng cách khi view model bị hủy
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+    implementation("com.google.dagger:hilt-android:2.56.2")
+    ksp("com.google.dagger:hilt-android-compiler:2.56.2")
 
-    implementation("com.google.dagger:hilt-android:2.51.1")
-    ksp("com.google.dagger:hilt-android-compiler:2.51.1") // thay kapt
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+}
+ksp {
+    arg("dagger.hilt.android.internal.disableAndroidSuperclassValidation", "true")
 }
